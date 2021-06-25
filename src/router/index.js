@@ -21,6 +21,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "countries-add" */ '../views/countries-add.vue')
   },
   {
+    path: '/paises/editar',
+    name: 'countries-edit',
+    component: () => import(/* webpackChunkName: "countries-edit" */ '../views/countries-edit.vue')
+  },
+  {
     path: '/provincias',
     name: 'provinces',
     component: () => import(/* webpackChunkName: "provinces" */ '../views/provinces.vue')
@@ -29,6 +34,11 @@ const routes = [
     path: '/provincias/agregar',
     name: 'provinces-add',
     component: () => import(/* webpackChunkName: "provinces-add" */ '../views/provinces-add.vue')
+  },
+  {
+    path: '/provincias/editar',
+    name: 'provinces-edit',
+    component: () => import(/* webpackChunkName: "provinces-edit" */ '../views/provinces-edit.vue')
   },
 ]
 

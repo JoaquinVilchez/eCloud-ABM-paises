@@ -8,7 +8,7 @@
         </b-list-group>
 
         <!-- ¿Esto podria ser otro componente ya que tiene las mismas caracteristicas tanto para pais como para provincia, exceptuando los datos a editar? -->
-        <b-card class="my-2">
+        <!--b-card class="my-2">
             <p>Editar país: </p>
             <b-input-group class="my-2">
 
@@ -19,27 +19,17 @@
                 <b-button variant="danger"><b-icon icon="x-circle"></b-icon></b-button>
                 </b-input-group-append>
             </b-input-group>
-        </b-card>
+        </b-card-->
 
-        <b-list-group>
-            <b-list-group-item class="py-3 d-flex justify-content-between align-items-center">
-                    <h4 class="my-0">Argentina</h4>
+        <b-list-group v-if="countries">
+            <b-list-group-item
+                v-for="country in countries"
+                :key="country.id"
+                class="py-3 d-flex justify-content-between align-items-center"
+            >
+                    <h4 class="my-0">{{ country.name }}</h4>
                     <div>
-                        <a href="#" class="mx-1"><b-icon icon="pencil-square"></b-icon></a>
-                        <a href="#" class="mx-1"><b-icon icon="trash-fill"></b-icon></a>
-                    </div>
-            </b-list-group-item>
-            <b-list-group-item class="py-3 d-flex justify-content-between align-items-center">
-                    <h4 class="my-0">Chile</h4>
-                    <div>
-                        <a href="#" class="mx-1"><b-icon icon="pencil-square"></b-icon></a>
-                        <a href="#" class="mx-1"><b-icon icon="trash-fill"></b-icon></a>
-                    </div>
-            </b-list-group-item>
-            <b-list-group-item class="py-3 d-flex justify-content-between align-items-center">
-                    <h4 class="my-0">Brasil</h4>
-                    <div>
-                        <a href="#" class="mx-1"><b-icon icon="pencil-square"></b-icon></a>
+                        <router-link :to="`countries-edit/${country.id}`" class="mx-1"><b-icon icon="pencil-square"></b-icon></router-link>
                         <a href="#" class="mx-1"><b-icon icon="trash-fill"></b-icon></a>
                     </div>
             </b-list-group-item>
@@ -48,7 +38,14 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-    name: 'CountriesList'
+    name: 'CountriesList',
+    computed: {
+        countries() {
+            return this.$store.state.country.countries
+        }
+    }
 }
 </script>
