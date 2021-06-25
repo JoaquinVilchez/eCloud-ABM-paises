@@ -6,6 +6,21 @@
                     <router-link :to="{name:'countries-add'}">Agregar uno</router-link>
             </b-list-group-item>
         </b-list-group>
+
+        <!-- ¿Esto podria ser otro componente ya que tiene las mismas caracteristicas tanto para pais como para provincia, exceptuando los datos a editar? -->
+        <b-card class="my-2">
+            <p>Editar país: </p>
+            <b-input-group class="my-2">
+
+                <b-form-input type="text" value="Argentina" autofocus></b-form-input>
+
+                <b-input-group-append>
+                <b-button variant="success"><b-icon icon="check-circle"></b-icon></b-button>
+                <b-button variant="danger"><b-icon icon="x-circle"></b-icon></b-button>
+                </b-input-group-append>
+            </b-input-group>
+        </b-card>
+
         <b-list-group>
             <b-list-group-item class="py-3 d-flex justify-content-between align-items-center">
                     <h4 class="my-0">Argentina</h4>
