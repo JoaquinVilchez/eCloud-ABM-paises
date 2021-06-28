@@ -29,7 +29,7 @@
             >
                     <h4 class="my-0">{{ country.name }}</h4>
                     <div>
-                        <router-link :to="`countries-edit/${country.id}`" class="mx-1"><b-icon icon="pencil-square"></b-icon></router-link>
+                        <router-link :to="`paises/editar/${country.id}`" class="mx-1"><b-icon icon="pencil-square"></b-icon></router-link>
                         <a href="#" class="mx-1"><b-icon icon="trash-fill"></b-icon></a>
                     </div>
             </b-list-group-item>
@@ -43,9 +43,10 @@ import { mapState } from 'vuex'
 export default {
     name: 'CountriesList',
     computed: {
-        countries() {
-            return this.$store.state.country.countries
-        }
+        ...mapState('country', ['countries'])
+        // countries() {
+        //     return this.$store.state.country.countries
+        // }
     }
 }
 </script>

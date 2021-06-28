@@ -22,24 +22,10 @@
         </b-card-->
 
         <b-list-group>
-            <b-list-group-item class="py-3 d-flex justify-content-between align-items-center">
-                    <h4 class="my-0">Santa Fe, Argentina</h4>
+            <b-list-group-item class="py-3 d-flex justify-content-between align-items-center" v-for="province in provinces" :key="province.id">
+                    <h4 class="my-0">{{province.name}}</h4>
                     <div>
-                        <router-link :to="{name:'provinces-edit'}" class="mx-1"><b-icon icon="pencil-square"></b-icon></router-link>
-                        <a href="#" class="mx-1"><b-icon icon="trash-fill"></b-icon></a>
-                    </div>
-            </b-list-group-item>
-            <b-list-group-item class="py-3 d-flex justify-content-between align-items-center">
-                    <h4 class="my-0">Santiago, Chile</h4>
-                    <div>
-                        <router-link :to="{name:'provinces-edit'}" class="mx-1"><b-icon icon="pencil-square"></b-icon></router-link>
-                        <a href="#" class="mx-1"><b-icon icon="trash-fill"></b-icon></a>
-                    </div>
-            </b-list-group-item>
-            <b-list-group-item class="py-3 d-flex justify-content-between align-items-center">
-                    <h4 class="my-0">Buenos Aires, Argentina</h4>
-                    <div>
-                        <router-link :to="{name:'provinces-edit'}" class="mx-1"><b-icon icon="pencil-square"></b-icon></router-link>
+                        <router-link :to="`provincias/editar/${province.id}`" class="mx-1"><b-icon icon="pencil-square"></b-icon></router-link>
                         <a href="#" class="mx-1"><b-icon icon="trash-fill"></b-icon></a>
                     </div>
             </b-list-group-item>
@@ -48,7 +34,14 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-    name: 'ProvincesList'
+    name: 'ProvincesList',
+    computed:{
+        ...mapState('province', ['provinces'])
+        // provinces(){
+        //     return this.$store.state.province.provinces
+        // }
+    }
 }
 </script>

@@ -21,7 +21,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "countries-add" */ '../views/countries-add.vue')
   },
   {
-    path: '/paises/editar',
+    path: '/paises/editar/:id',
     name: 'countries-edit',
     component: () => import(/* webpackChunkName: "countries-edit" */ '../views/countries-edit.vue')
   },
@@ -36,7 +36,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "provinces-add" */ '../views/provinces-add.vue')
   },
   {
-    path: '/provincias/editar',
+    path: '/provincias/editar/:id',
     name: 'provinces-edit',
     component: () => import(/* webpackChunkName: "provinces-edit" */ '../views/provinces-edit.vue')
   },

@@ -17,7 +17,7 @@
             </b-form-group>
             <div class="d-flex justify-content-between flex-column">
                 <b-button block type="submit" variant="primary" class="mb-2">Guardar</b-button>
-                <b-button :to="{name:'countries'}" block type="reset" class="mb-2">Cancelar</b-button>
+                <b-button :to="{name:'countries'}" variant="danger" block type="reset" class="mb-2">Cancelar</b-button>
             </div>
         </b-form>
     </div>  
