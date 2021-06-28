@@ -6,18 +6,22 @@
                 <b-button :to="{name:'countries'}" variant="primary">Volver al listado</b-button>
             </div>
             <hr>
-            <CountriesForm></CountriesForm>
+            <CountriesForm @saveForm="updateCountry"></CountriesForm>
         </b-col>
     </div>
 </template>
 
 <script>
 import CountriesForm from '@/components/countries/form.vue'
+import { mapMutations } from 'vuex'
 
 export default {
     name: 'countries-add',
     components: {
         CountriesForm
+    },
+    methods:{
+        ...mapMutations('country', ['updateCountry'])
     }
 }
 </script>

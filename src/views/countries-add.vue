@@ -6,18 +6,24 @@
                 <b-button :to="{name:'countries'}" variant="primary">Volver al listado</b-button>
             </div>
             <hr>
-            <CountriesForm></CountriesForm>
+            <!-- Obtener parametro del formulario enviado por el evento para pasarlo por parametro en addCountry(nameCountryInput)
+            Para poder crear el objeto country y agregarlo. -->
+            <CountriesForm @saveForm="addCountry()"></CountriesForm>
         </b-col>
     </div>
 </template>
 
 <script>
 import CountriesForm from '@/components/countries/form.vue'
+import { mapMutations } from 'vuex'
 
 export default {
     name: 'countries-add',
     components: {
         CountriesForm
+    },
+    methods:{
+        ...mapMutations('country', ['addCountry'])
     }
 }
 </script>

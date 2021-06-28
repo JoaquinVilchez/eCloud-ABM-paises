@@ -13,10 +13,11 @@
                 type="text"
                 placeholder="Ingrese nombre de país"
                 required
+                v-model="nameCountryInput"
                 ></b-form-input>
             </b-form-group>
             <div class="d-flex justify-content-between flex-column">
-                <b-button block type="submit" variant="primary" class="mb-2">Guardar</b-button>
+                <b-button @click="saveForm" block type="submit" variant="primary" class="mb-2">Guardar</b-button>
                 <b-button :to="{name:'countries'}" variant="danger" block type="reset" class="mb-2">Cancelar</b-button>
             </div>
         </b-form>
@@ -25,6 +26,16 @@
 
 <script>
 export default {
-    name: 'CountriesForm'
+    name: 'CountriesForm',
+    data(){
+        return{
+            nameCountryInput: ''
+        }
+    },
+    methods:{
+        saveForm(){
+            this.$emit('saveForm', this.nameCountryInput)
+        }
+    }
 }
 </script>

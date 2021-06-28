@@ -11,7 +11,9 @@ const mutations = {
     state.countries = state.countries.filter((country) => country.id !== idCountry)
   },
   addCountry(state, country) {
-    state.countries.push(country)
+    alert(country)
+    console.log(country)
+    // state.countries.push(country)
   },
   updateCountry(state, country) {
     const countryIndex = state.countries.findIndex((temp) => temp.id === country.id)
