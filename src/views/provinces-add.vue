@@ -6,7 +6,7 @@
                 <b-button :to="{name:'provinces'}" variant="primary">Volver al listado</b-button>
             </div>
             <hr>
-            <ProvincesForm></ProvincesForm>
+            <ProvincesForm @saveForm="addProvince"></ProvincesForm>
         </b-col>
     </div>
 </template>
@@ -17,6 +17,12 @@ export default {
     name: 'provinces-add',
     components: {
         ProvincesForm
+    },
+    methods:{
+        addProvince(province){
+            this.$store.commit("province/addProvince", province)
+            this.$router.push('/provincias');
+        }
     }
 }
 </script>

@@ -8,7 +8,7 @@
             <hr>
             <!-- Obtener parametro del formulario enviado por el evento para pasarlo por parametro en addCountry(nameCountryInput)
             Para poder crear el objeto country y agregarlo. -->
-            <CountriesForm @saveForm="addCountry()"></CountriesForm>
+            <CountriesForm @saveForm="addCountry"></CountriesForm>
         </b-col>
     </div>
 </template>
@@ -23,7 +23,10 @@ export default {
         CountriesForm
     },
     methods:{
-        ...mapMutations('country', ['addCountry'])
+        addCountry(country){
+            this.$store.commit("country/addCountry", country)
+            this.$router.push('/paises');
+        }
     }
 }
 </script>

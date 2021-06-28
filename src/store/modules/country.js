@@ -7,13 +7,19 @@ const state = {
 }
 
 const mutations = {
+  addCountry(state, country) {
+    let lastItem = state.countries[state.countries.length-1]
+    let idLastItem;
+    if(typeof(lastItem)=='undefined'){
+      idLastItem = 0
+    }else{
+      idLastItem = lastItem.id
+    }
+    country.id=idLastItem + 1
+    state.countries.push(country)
+  },
   deleteCountry(state, idCountry) {
     state.countries = state.countries.filter((country) => country.id !== idCountry)
-  },
-  addCountry(state, country) {
-    alert(country)
-    console.log(country)
-    // state.countries.push(country)
   },
   updateCountry(state, country) {
     const countryIndex = state.countries.findIndex((temp) => temp.id === country.id)
