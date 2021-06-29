@@ -14,6 +14,7 @@
                 placeholder="Ingrese nombre de país"
                 required
                 v-model="countryForm.name"
+                autocomplete="off"
                 ></b-form-input>
             </b-form-group>
             <div class="d-flex justify-content-between flex-column">

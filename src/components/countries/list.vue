@@ -33,7 +33,21 @@ export default {
     },
     methods:{
         deleteCountry(idCountry){
-            this.$store.commit("country/deleteCountry", idCountry)
+            this.$bvModal.msgBoxConfirm('¿Estás seguro de eliminar este país?')
+            .then(value => {
+                if(value){
+                    this.$store.commit("country/deleteCountry", idCountry)
+                    this.makeToast('success')
+                }
+            })
+        },
+        makeToast(variant = null) {
+        this.$bvToast.toast('Descripcion', {
+          title: 'Pais eliminado con exito',
+          variant: variant,
+          solid: true, 
+          autoHideDelay: 5000,         
+        })
         }
     }
 }

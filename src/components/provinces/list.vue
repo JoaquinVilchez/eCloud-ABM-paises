@@ -26,10 +26,24 @@ export default {
     computed:{
         ...mapState('province', ['provinces'])
     },
-    methods:{   
+    methods:{  
         deleteProvince(idProvince){
-            this.$store.commit("province/deleteProvince", idProvince)
-        }
+            this.$bvModal.msgBoxConfirm('¿Estás seguro de eliminar esta provincia?')
+            .then(value => {
+                if(value){
+                    this.$store.commit("province/deleteProvince", idProvince)
+                    this.makeToast('success')
+                }
+            })
+        },
+        makeToast(variant = null) {
+        this.$bvToast.toast('Descripcion', {
+          title: 'Provincia eliminada con exito',
+          variant: variant,
+          solid: true,
+          autoHideDelay: 5000,
+        })
+      }
     }
 }
 </script>

@@ -22,6 +22,15 @@ export default {
         addProvince(province){
             this.$store.commit("province/addProvince", province)
             this.$router.push('/provincias');
+            this.makeToast('success', 'País agregado')
+        },
+        makeToast(variant = null) {
+            this.$bvToast.toast('Toast body content', {
+            title: `Variant ${variant || 'default'}`,
+            variant: variant,
+            solid: true,
+            autoHideDelay: 5000
+            })
         }
     }
 }

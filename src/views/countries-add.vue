@@ -15,7 +15,6 @@
 
 <script>
 import CountriesForm from '@/components/countries/form.vue'
-import { mapMutations } from 'vuex'
 
 export default {
     name: 'countries-add',
@@ -24,8 +23,17 @@ export default {
     },
     methods:{
         addCountry(country){
-            this.$store.commit("country/addCountry", country)
+            this.$store.commit("country/addCountry", country);
             this.$router.push('/paises');
+            this.makeToast('success', 'País agregado')
+        },
+        makeToast(variant = null) {
+            this.$bvToast.toast('Toast body content', {
+            title: `Variant ${variant || 'default'}`,
+            variant: variant,
+            solid: true,
+            autoHideDelay: 5000
+            })
         }
     }
 }

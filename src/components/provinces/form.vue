@@ -13,6 +13,7 @@
                 type="text"
                 placeholder="Ingrese nombre de provincia"
                 v-model="provinceForm.name"
+                autocomplete="off"
                 required
                 ></b-form-input>
             </b-form-group>
@@ -43,7 +44,7 @@ export default {
             provinceForm: {
                 id: '',
                 name: '',
-                idCountry: ''
+                idCountry: null
             }
         }
     },
