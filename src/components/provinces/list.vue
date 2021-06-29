@@ -44,6 +44,6 @@ export default {
           autoHideDelay: 5000,
         })
       }
-    }
+    }``
 }
 </script>

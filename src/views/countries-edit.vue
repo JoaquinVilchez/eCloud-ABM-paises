@@ -31,7 +31,19 @@ export default {
         CountriesForm
     },
     methods:{
-        ...mapMutations('country', ['updateCountry'])
+        updateCountry(country){
+            this.$store.commit("country/updateCountry", country);
+            this.$router.push('/paises');
+            this.makeToast('success')
+        },
+        makeToast(variant = null) {
+            this.$bvToast.toast('Toast body content', {
+            title: `Variant ${variant || 'default'}`,
+            variant: variant,
+            solid: true,
+            autoHideDelay: 5000
+            })
+        }
     }
 }
 </script>

@@ -35,7 +35,7 @@ export default {
         return{
             countryForm: {
                 id:  this.country ? this.country.id : '',
-                name: this.country ? this.province.name : '',
+                name: this.country ? this.country.name : '',
             }
         }
     },

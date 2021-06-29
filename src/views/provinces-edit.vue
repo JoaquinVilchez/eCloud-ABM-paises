@@ -6,7 +6,7 @@
                 <b-button :to="{name:'provinces'}" variant="primary">Volver al listado</b-button>
             </div>
             <hr>
-            <ProvincesForm :province="province"></ProvincesForm>
+            <ProvincesForm :province="province" @saveForm="updateProvince"></ProvincesForm>
         </b-col>
     </div>
 </template>
@@ -28,5 +28,20 @@ export default {
             return this.$store.getters['province/getProvinceById'](this.provinceId)
         }
     },
+    methods:{
+        updateProvince(province){
+            this.$store.commit("province/updateProvince", province);
+            this.$router.push('/provincias');
+            this.makeToast('success')
+        },
+        makeToast(variant = null) {
+            this.$bvToast.toast('Toast body content', {
+            title: `Variant ${variant || 'default'}`,
+            variant: variant,
+            solid: true,
+            autoHideDelay: 5000
+            })
+        }
+    }
 }
 </script>

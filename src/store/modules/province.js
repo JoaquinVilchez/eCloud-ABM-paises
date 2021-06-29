@@ -21,9 +21,9 @@ const mutations = {
   deleteProvince(state, idProvince){
     state.provinces = state.provinces.filter((province)=>province.id !== idProvince)
   },
-  editProvince(state, province){
+  updateProvince(state, province){
     const provinceIndex = state.provinces.findIndex((item)=>item.id == province.id)
-    provinces[provinceIndex] = province
+    state.provinces[provinceIndex] = province
   }
 }
 
