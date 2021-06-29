@@ -28,11 +28,14 @@
 <script>
 export default {
     name: 'CountriesForm',
+    props: {
+        country: null
+    },
     data(){
         return{
             countryForm: {
-                id: '',
-                name: ''
+                id:  this.country ? this.country.id : '',
+                name: this.country ? this.province.name : '',
             }
         }
     },

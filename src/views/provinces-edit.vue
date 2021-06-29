@@ -6,7 +6,7 @@
                 <b-button :to="{name:'provinces'}" variant="primary">Volver al listado</b-button>
             </div>
             <hr>
-            <ProvincesForm></ProvincesForm>
+            <ProvincesForm :province="province"></ProvincesForm>
         </b-col>
     </div>
 </template>
@@ -15,8 +15,18 @@
 import ProvincesForm from '@/components/provinces/form.vue'
 export default {
     name: 'provinces-add',
+    data(){
+        return{
+            provinceId: parseInt(this.$route.params.id)
+        }
+    },
     components: {
         ProvincesForm
-    }
+    },
+    computed:{
+        province(){
+            return this.$store.getters['province/getProvinceById'](this.provinceId)
+        }
+    },
 }
 </script>

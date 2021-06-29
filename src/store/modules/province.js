@@ -27,8 +27,16 @@ const mutations = {
   }
 }
 
+const getters = {
+  getProvinceById: (state) => (provinceId) =>{
+    const province = state.provinces.find(province => province.id === provinceId)
+    return province
+  }
+} 
+
 export default {
   namespaced: true,
   state,
   mutations,
+  getters
 }

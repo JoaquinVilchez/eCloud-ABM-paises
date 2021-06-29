@@ -39,12 +39,15 @@
 <script>
 export default {
     name: 'ProvincesForm',
+    props:{
+        province: null
+    },
     data(){
         return{
             provinceForm: {
-                id: '',
-                name: '',
-                idCountry: null
+                id: this.province ? this.province.id : '',
+                name: this.province ? this.province.name : '',
+                idCountry: this.province ? this.province.idCountry : '',
             }
         }
     },

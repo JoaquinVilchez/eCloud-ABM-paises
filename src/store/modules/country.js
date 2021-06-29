@@ -27,8 +27,16 @@ const mutations = {
   }
 }
 
+const getters = {
+  getCountryById: (state) => (countryId) => {
+    const country = state.countries.find(country => country.id === countryId)
+    return country
+  },
+}
+
 export default {
   namespaced: true,
   state,
-  mutations
+  mutations,
+  getters
 }

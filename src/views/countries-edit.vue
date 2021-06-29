@@ -6,7 +6,7 @@
                 <b-button :to="{name:'countries'}" variant="primary">Volver al listado</b-button>
             </div>
             <hr>
-            <CountriesForm @saveForm="updateCountry"></CountriesForm>
+            <CountriesForm :country="country" @saveForm="updateCountry"></CountriesForm>
         </b-col>
     </div>
 </template>
@@ -17,6 +17,16 @@ import { mapMutations } from 'vuex'
 
 export default {
     name: 'countries-add',
+    data(){
+        return{
+            countryId: parseInt(this.$route.params.id)
+        }
+    },
+    computed:{
+        country(){
+            return this.$store.getters['country/getCountryById'](this.countryId)
+        }
+    },
     components: {
         CountriesForm
     },
